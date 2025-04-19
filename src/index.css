@@ -6,6 +6,9 @@ header {
   border-bottom: 1px solid #eaf6f6;
   padding: 0 0 30px 0;
 }
+main {
+  padding: 30px 0;
+}
 footer {
   border-top: 1px solid #eaf6f6;
   padding: 30px 0 0 0;
@@ -41,4 +44,47 @@ a {
   color: #fcfefe;
   font-size: 16px;
   margin-left: 5px;
+}
+
+.weather-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-city {
+  margin: 0;
+  color: #f76b8a;
+  font-weight: bold;
+  line-height: 48px;
+  font-size: 38px;
+}
+
+.weather-details {
+  font-size: 14px;
+}
+
+.weather-details strong {
+  color: #66bfbf;
+}
+.weather-temperature-container {
+  color: #f76b8a;
+}
+.weather-temperature-container p {
+  margin: 0;
+}
+
+.temp-icon {
+  font-size: 40px;
+  position: relative;
+  top: -8px;
+  margin-right: 10px;
+}
+.temp-value {
+  font-size: 88px;
+  font-weight: bold;
+}
+.temp-unit {
+  position: relative;
+  font-size: 28px;
+  top: -38px;
 }
