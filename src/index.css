@@ -50,7 +50,9 @@ a {
   display: flex;
   justify-content: space-between;
 }
-
+.data-container {
+  margin: 20px 0 0;
+}
 .weather-city {
   margin: 0;
   color: #f76b8a;
@@ -76,8 +78,8 @@ a {
 .temp-icon {
   font-size: 40px;
   position: relative;
-  top: -8px;
   margin-right: 10px;
+  top: 10px;
 }
 .temp-value {
   font-size: 88px;

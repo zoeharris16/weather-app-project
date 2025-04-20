@@ -10,6 +10,7 @@ function updateValue(response) {
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = response.data.temperature.humidity;
   windElement.innerHTML = response.data.wind.speed;
+  iconElement.innerHTML = `<img src =${response.data.condition.icon_url}>`;
   temperatureElement.innerHTML = Math.round(temperature);
 }
 
