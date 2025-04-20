@@ -90,3 +90,21 @@ a {
   font-size: 28px;
   top: -38px;
 }
+.forecast-data {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0 30px;
+}
+
+.forecast-container {
+  text-align: center;
+  border: 1px solid #eaf6f6;
+  border-radius: 6px;
+  padding: 10px 20px;
+  box-shadow: 10px 10px 20px rgba(90, 98, 98, 0.2);
+}
+.forecast-date {
+  font-weight: bold;
+  color: #f76b8a;
+  line-height: 1.2;
+}
