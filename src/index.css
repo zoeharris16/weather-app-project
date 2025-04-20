@@ -106,5 +106,18 @@ a {
 .forecast-date {
   font-weight: bold;
   color: #f76b8a;
-  line-height: 1.2;
+  line-height: 1.5;
+  padding: 0 0 8px 0;
+}
+.forecast-icon {
+  font-size: 30px;
+  padding: 0 0 8px 0;
+}
+.forecast-temps {
+  display: flex;
+  justify-content: space-between;
+}
+
+.forecast-temp {
+  padding: 4px;
 }
