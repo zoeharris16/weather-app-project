@@ -13,7 +13,7 @@ function updateValue(response) {
   iconElement.innerHTML = `<img src =${response.data.condition.icon_url}>`;
   temperatureElement.innerHTML = Math.round(temperature);
 
-  insertForecast(response.data.city);
+  findForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -42,6 +42,12 @@ function formatDate(date) {
   let formattedDay = days[day];
   return `${formattedDay} ${hours}:${minutes}, `;
 }
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
+}
 function findCity(city) {
   let apiKey = "ea6b5e905f9afo1d15ta66af3bbd604d";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
@@ -57,23 +63,26 @@ function findForecast(city) {
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
   axios.get(apiUrl).then(insertForecast);
 }
-function insertForecast() {
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+function insertForecast(response) {
   let forecastHtml = "";
 
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `<div class="forecast-container">
-          <div class="forecast-date">${day}</div>
-          <div class="forecast-icon">☀️</div>
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `<div class="forecast-container">
+          <div class="forecast-date">${formatDay(day.time)}</div>
+          <div><img src=${day.condition.icon_url} class="forecast-icon"></div>
           <div class="forecast-temps">
             <div class="forecast-temp">
-              <strong>15°</strong>
+              <strong>${Math.round(day.temperature.maximum)}°</strong>
             </div>
-            <div class="forecast-temp">9°</div>
+            <div class="forecast-temp">${Math.round(
+              day.temperature.minimum
+            )}°</div>
           </div>
         </div>`;
+    }
   });
 
   forecastElement = document.querySelector("#forecast-data");
