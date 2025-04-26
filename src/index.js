@@ -43,11 +43,6 @@ function formatDate(date) {
   return `${formattedDay} ${hours}:${minutes}, `;
 }
 
-function formatDay(timestamp) {
-  let date = new Date(timestamp * 1000);
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  return days[date.getDay()];
-}
 function findCity(city) {
   let apiKey = "ea6b5e905f9afo1d15ta66af3bbd604d";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
@@ -57,6 +52,11 @@ function changeCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-form-input");
   findCity(searchInput.value);
+}
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
 }
 function findForecast(city) {
   let apiKey = "ea6b5e905f9afo1d15ta66af3bbd604d";
